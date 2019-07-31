@@ -1,9 +1,9 @@
 [[shell:gitg&]], [[shell:git gui&]], file:.gitignore, file:.git/config
 * add remotes  
-git remote add glitch https://api.glitch.com/git/lightweight-accounts-wip
-git remote add github git@github.com:checkered-rabbit/lightweight-accounts-wip.git
-git remote -v
+: git remote add glitch https://api.glitch.com/git/lightweight-accounts-wip
+: git remote add github git@github.com:checkered-rabbit/lightweight-accounts-wip.git
+: git remote -v
 * add account
-git config user.name 'Local (lightweight-accounts-wip)'
-git config user.email ''
+: git config user.name 'Local (lightweight-accounts-wip)'
+: git config user.email '<none>'
 
