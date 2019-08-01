@@ -13,4 +13,6 @@
 * pull
 : Glitch: git pull github master;refresh
 * step
-move stuf to attic
+add sessions
+* Links
+https://www.npmjs.com/package/session-file-store#usage
