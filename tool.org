@@ -13,7 +13,7 @@
 * pull
 : Glitch: git pull github master;refresh
 * step
-use template for view
+use template for view 
 * Links
 https://ejs.co/#install
 : https://github.com/passport/express-4.x-local-example
