@@ -3,6 +3,8 @@
 
 // init project
 const express = require('express');
+const accounts = require('./accounts');
+
 const app = express();
 
 // we've started you off with Express, 
@@ -15,6 +17,8 @@ app.use(express.static('public'));
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
+
+accounts.addTo(app);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
