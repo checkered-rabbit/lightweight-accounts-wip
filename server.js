@@ -19,12 +19,12 @@ app.use(express.static('public'));
 // if something adds app.post()
 app.use(require('body-parser').urlencoded({ extended: true }));
 
+accounts.addTo(app);
+
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
   response.render('index',{date: new Date(), user: request.user});
 });
-
-accounts.addTo(app);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
