@@ -12,3 +12,5 @@
 : git config user.email '<none>'
 * pull
 : Glitch: git pull github master;refresh
+* step
+move stuf to attic
