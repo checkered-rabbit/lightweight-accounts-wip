@@ -47,19 +47,20 @@
           </div>
         </form>
       <% } else { %>
-        <p>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</p>
-        <p>
-          ID: <%= user.id %><br/>
-          Username: <%= user.username %><br/>
-          Name: <%= user.displayName %><br/>
+        <p><b>Hello, <%= user.username %>. Your profile:
+          Username: <%= user.username %>,
+          Name: <%= user.displayName %>,
           <% if (user.emails) { %>
-          Email: <%= user.emails[0].value %><br/>
+          Email: <%= user.emails[0].value %>,
           <% } %>
+          ID: <%= user.id %>
           </p>
           <a href="/logout">Log out</a>          
       <% } %>
       
-      <p class="bold">Oh hi,</p>
+      <hr>
+
+      <p class="bold">Oh hi, <%= user && user.displayName || 'stranger' %></p>
       
       <p>Tell me your hopes and dreams:</p>
       

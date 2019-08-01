@@ -56,7 +56,7 @@ exports.addTo = app => {
     app.use(passport.session());
 
     app.post('/login',
-        passport.authenticate('local', { failureRedirect: '/error' }),
+        passport.authenticate('local', { failureRedirect: '/' }),
         function (req, res) {
             res.redirect('/');
         });
