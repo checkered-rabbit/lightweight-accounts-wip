@@ -7,6 +7,9 @@ const accounts = require('./accounts/app');
 
 const app = express();
 
+// Configure view engine to render EJS templates.
+app.set('view engine', 'ejs');
+
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
@@ -15,7 +18,7 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+  response.render('index',{date: new Date()});
 });
 
 accounts.addTo(app);
