@@ -3,7 +3,7 @@
 
 // init project
 const express = require('express');
-const accounts = require('./accounts');
+const accounts = require('./accounts/app');
 
 const app = express();
 
