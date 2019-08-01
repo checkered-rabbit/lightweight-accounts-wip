@@ -15,6 +15,6 @@
 * step
 use template for view 
 * Links
-https://ejs.co/#install
+: https://ejs.co/#install
 : https://github.com/passport/express-4.x-local-example
 : https://www.npmjs.com/package/session-file-store#usage
