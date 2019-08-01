@@ -13,7 +13,8 @@
 * pull
 : Glitch: git pull github master;refresh
 * step
-add simplest passport
+use template for view
 * Links
+https://ejs.co/#install
 : https://github.com/passport/express-4.x-local-example
 : https://www.npmjs.com/package/session-file-store#usage
