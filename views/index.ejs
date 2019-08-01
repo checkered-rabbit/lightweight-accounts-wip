@@ -35,27 +35,29 @@
         <p>Welcome! Please log in.</p>
         <form action="/login" method="post">
           <div>
-          <label>Username:</label>
-          <input type="text" name="username"/><br/>
+            <label>Username:</label>
+            <input type="text" name="username" /><br />
           </div>
           <div>
-          <label>Password:</label>
-          <input type="password" name="password"/>
+            <label>Password:</label>
+            <input type="password" name="password" />
           </div>
           <div>
-          <input type="submit" value="Submit"/>
+            <input type="submit" value="Submit" />
           </div>
-        </form>
+        </form>    
       <% } else { %>
-        <p><b>Hello, <%= user.username %>. Your profile:
+        <p>
+          <b>Hello, <%= user.username %>.</b>
+          <a href="/logout">Log out?</a>
+          <br>
           Username: <%= user.username %>,
           Name: <%= user.displayName %>,
           <% if (user.emails) { %>
           Email: <%= user.emails[0].value %>,
           <% } %>
           ID: <%= user.id %>
-          </p>
-          <a href="/logout">Log out</a>          
+        </p>
       <% } %>
       
       <hr>
