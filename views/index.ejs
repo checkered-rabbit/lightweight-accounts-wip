@@ -31,11 +31,30 @@
     </header>
 
     <main>
+      <% if (!user) { %>
+        <p>Welcome! Please log in.</p>
+        <form action="/login" method="post">
+          <div>
+          <label>Username:</label>
+          <input type="text" name="username"/><br/>
+          </div>
+          <div>
+          <label>Password:</label>
+          <input type="password" name="password"/>
+          </div>
+          <div>
+          <input type="submit" value="Submit"/>
+          </div>
+        </form>
+      <% } else { %>
+        <p>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</p>
+      <% } %>
+      
       <p class="bold">Oh hi,</p>
       
       <p>Tell me your hopes and dreams:</p>
       
-      <form>
+      <form id="dreams_form">
         <input name="dream" type="text" maxlength="100" placeholder="Dreams!" aria-labelledby="submit-dream">
         <button type="submit" id="submit-dream">Submit Dream</button>
       </form>

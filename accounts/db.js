@@ -1,8 +1,8 @@
 // based on https://github.com/passport/express-4.x-local-example/blob/master/db/users.js
 
 var records = [
-    { id: 1, username: 'jack', password: 'secret', displayName: 'Jack', emails: [ { value: 'jack@example.com' } ] }
-  , { id: 2, username: 'jill', password: 'birthday', displayName: 'Jill', emails: [ { value: 'jill@example.com' } ] }
+    { id: 1, username: 'a', password: 'a', displayName: 'A', emails: [ { value: 'a@example.com' } ] }
+  , { id: 2, username: 'aa', password: 'aa', displayName: 'Aa', emails: [ { value: 'aa@example.com' } ] }
 ];
 
 exports.findById = function(id, cb) {

@@ -18,7 +18,7 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
-  response.render('index',{date: new Date()});
+  response.render('index',{date: new Date(), user: request.user});
 });
 
 accounts.addTo(app);

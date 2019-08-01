@@ -12,7 +12,7 @@ const dreams = [
 
 // define variables that reference elements on our page
 const dreamsList = document.getElementById('dreams');
-const dreamsForm = document.forms[0];
+const dreamsForm = document.getElementById('dreams_form');
 const dreamInput = dreamsForm.elements['dream'];
 
 // a helper function that creates a list item for a given dream
