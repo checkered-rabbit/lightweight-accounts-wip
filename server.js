@@ -16,6 +16,9 @@ app.set('view engine', 'ejs');
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
+// if something adds app.post()
+app.use(require('body-parser').urlencoded({ extended: true }));
+
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
   response.render('index',{date: new Date(), user: request.user});
