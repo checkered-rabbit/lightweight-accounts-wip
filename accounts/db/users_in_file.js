@@ -2,8 +2,17 @@
 
 var records;
 
+function nod(fn, ...args) {
+  return new Promise(function (resolve,reject) {
+    fn.call(null, ...args,
+      (err, data) => {if (err) reject(err); else resolve(data);}
+    )
+  });
+}
+
 exports.load = async () => {
   exports.load = async () => {throw "load only once!"};
+
 }
 
 exports.save = async () => {

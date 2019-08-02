@@ -17,6 +17,8 @@ exports.addTo = async app => {
         saveUninitialized: false
     }));
 
+    db.users.load();
+
     // Configure the local strategy for use by Passport.
     //
     // The local strategy require a `verify` function which receives the credentials
