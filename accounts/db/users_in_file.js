@@ -27,14 +27,15 @@ exports.load = async () => {
     emails: [{ value: 'admin@example.com' }],
     data: { admin: true }
   });
-  // invisible 'SECRET=  ' could be pass='  ', but by experiment does not in. 
+  // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in. 
   // TODO investigate more.
-  user.password: process.env.SECRET;
-);
-}
+  Object.assign(user, { password: process.env.SECRET });
+  await exports.save(user);
+};
+
 
 exports.save = async () => {
-
+console.
 }
 
 exports.findById = function (id, cb) {
