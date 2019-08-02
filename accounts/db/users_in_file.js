@@ -1,18 +1,26 @@
 // based on https://github.com/passport/express-4.x-local-example/blob/master/db/users.js
 
+const fs = require('fs');
+
 var records;
+var next
 
 function nod(fn, ...args) {
-  return new Promise(function (resolve,reject) {
+  return new Promise(function (resolve, reject) {
     fn.call(null, ...args,
-      (err, data) => {if (err) reject(err); else resolve(data);}
+      (err, data) => { if (err) reject(err); else resolve(data); }
     )
   });
 }
 
 exports.load = async () => {
-  exports.load = async () => {throw "load only once!"};
-
+  exports.load = async () => { throw "load only once!" };
+  try {
+    var json = await nod(fs.readFile,'.data/users.json', 'utf8');
+  } catch (e) {
+    console.log(e,'---handled');
+    records = [];
+  }
 }
 
 exports.save = async () => {
