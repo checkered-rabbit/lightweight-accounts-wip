@@ -6,7 +6,9 @@ exports.addTo = app => {
     var session = require('express-session');
     var FileStore = require('session-file-store')(session);
 
-    var fileStoreOptions = {};
+    var fileStoreOptions = {
+        path: '.data/sessions'
+    };
 
     app.use(session({
         store: new FileStore(fileStoreOptions),
@@ -29,6 +31,7 @@ exports.addTo = app => {
                 if (user.password != password) { return cb(null, false); }
                 return cb(null, user);
             });
+
         }));
 
 
