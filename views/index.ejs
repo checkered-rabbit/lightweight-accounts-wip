@@ -57,7 +57,7 @@
           Email: <%= user.emails[0].value %>,
           <% } %>
           ID: <%= user.id %>,
-          Admin: <%= data.admin =>
+          Admin: <%= !!user.data.admin %>
         </p>
       <% } %>
       
