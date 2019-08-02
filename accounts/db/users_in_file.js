@@ -30,12 +30,19 @@ exports.load = async () => {
   // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in. 
   // TODO investigate more.
   Object.assign(user, { password: process.env.SECRET });
-  await exports.save(user);
+  await exports.save();
 };
 
+const defaultByUsername = async (name, defaults) => {
+  const user = await nod(exports.findByUsername, name);
+  if (!user) {
+    const user = { ...{ id: ++lastId, username: name }, ...defaults };
+    await exports.save();
+  }
+}
 
 exports.save = async () => {
-console.
+  console.log('TODO implement')
 }
 
 exports.findById = function (id, cb) {
