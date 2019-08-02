@@ -13,7 +13,7 @@
 * pull
 : Glitch: git pull github master;refresh
 * step
-rename accounts/app.js to index
+add admin mit .env-pass
 * Links
 : https://ejs.co/#install
 : https://github.com/passport/express-4.x-local-example

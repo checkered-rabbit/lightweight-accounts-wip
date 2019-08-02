@@ -19,6 +19,7 @@ app.use(express.static('public'));
 // if something adds app.post()
 app.use(require('body-parser').urlencoded({ extended: true }));
 
+// app.adds and so on
 accounts.addTo(app);
 
 // http://expressjs.com/en/starter/basic-routing.html
