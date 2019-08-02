@@ -13,7 +13,7 @@
 * pull
 : Glitch: git pull github master;refresh
 * step
-add admin mit .env-pass
+add primitive persistence
 * Links
 : https://ejs.co/#install
 : https://github.com/passport/express-4.x-local-example
