@@ -19,15 +19,17 @@ app.use(express.static('public'));
 // if something adds app.post()
 app.use(require('body-parser').urlencoded({ extended: true }));
 
-// app.adds and so on
-accounts.addTo(app);
+(async () => {
+  // app.adds and so on
+  await accounts.addTo(app);
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get('/', function(request, response) {
-  response.render('index',{date: new Date(), user: request.user});
-});
+  // http://expressjs.com/en/starter/basic-routing.html
+  app.get('/', function (request, response) {
+    response.render('index', { date: new Date(), user: request.user });
+  });
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
-  console.log(`Your app is listening on port ${listener.address().port}. ${new Date().toTimeString()}`);
-});
+  // listen for requests :)
+  const listener = app.listen(process.env.PORT, function () {
+    console.log(`Your app is listening on port ${listener.address().port}. ${new Date().toTimeString()}`);
+  });
+})();

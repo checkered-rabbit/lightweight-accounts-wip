@@ -2,11 +2,11 @@ const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 const db = require('./db');
 
-exports.addTo = app => {
-    var session = require('express-session');
-    var FileStore = require('session-file-store')(session);
+exports.addTo = async app => {
+    const session = require('express-session');
+    const FileStore = require('session-file-store')(session);
 
-    var fileStoreOptions = {
+    const fileStoreOptions = {
         path: '.data/sessions'
     };
 
@@ -31,7 +31,6 @@ exports.addTo = app => {
                 if (user.password != password) { return cb(null, false); }
                 return cb(null, user);
             });
-
         }));
 
 
@@ -69,6 +68,5 @@ exports.addTo = app => {
             req.logout();
             res.redirect('/');
         });
-
 
 }
