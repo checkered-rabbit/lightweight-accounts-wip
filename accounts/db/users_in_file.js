@@ -3,7 +3,7 @@
 const fs = require('fs');
 
 var records;
-var next
+var lastId;
 
 function nod(fn, ...args) {
   return new Promise(function (resolve, reject) {
@@ -16,11 +16,21 @@ function nod(fn, ...args) {
 exports.load = async () => {
   exports.load = async () => { throw "load only once!" };
   try {
-    var json = await nod(fs.readFile,'.data/users.json', 'utf8');
+    var json = await nod(fs.readFile, '.data/users.json', 'utf8');
   } catch (e) {
-    console.log(e,'---handled');
+    console.log(e, '---handled');
     records = [];
+    lastId = 0;
   }
+  const user = defaultByUsername('admin', {
+    displayName: 'Admin',
+    emails: [{ value: 'admin@example.com' }],
+    data: { admin: true }
+  });
+  // invisible 'SECRET=  ' could be pass='  ', but by experiment does not in. 
+  // TODO investigate more.
+  user.password: process.env.SECRET;
+);
 }
 
 exports.save = async () => {

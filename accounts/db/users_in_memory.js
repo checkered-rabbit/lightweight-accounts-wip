@@ -5,7 +5,8 @@ var records = [
   { id: 2, username: 'aa', password: 'aa', displayName: 'Aa', emails: [{ value: 'aa@example.com' }], data: {} },
   {
     id: 3, username: 'admin',
-    //do not allow empty or with spaces from env-vars, but that happens automatically
+    // invisible 'SECRET=  ' could be pass='  ', but by experiment does not in. 
+    // TODO investigate more.
     password: process.env.SECRET,
     displayName: 'Admin',
     emails: [{ value: 'admin@example.com' }],
