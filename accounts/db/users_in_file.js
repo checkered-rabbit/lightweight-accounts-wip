@@ -19,8 +19,10 @@ exports.load = async () => {
   exports.load = async () => { throw "load only once!" };
   try {
     const json = await nod(fs.readFile, userFile, 'utf8');
+    const obj = JSON.parse(json);
+    {lastId,records} = obj;
+    console.log([lastId,records,json]);
     throw "test no file";
-    {}
   } catch (e) {
     console.log(e, '---handled');
     records = [];
