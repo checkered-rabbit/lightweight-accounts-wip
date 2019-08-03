@@ -38,13 +38,17 @@ const defaultByUsername = async (name, defaults) => {
   const user = await nod(exports.findByUsername, name);
   if (!user) {
     const user = { ...{ id: ++lastId, username: name }, ...defaults };
+    records.push(user);
     await exports.save();
+    return user;
   }
+  return user;
 }
 
 exports.save = async () => {
-  console.log('TODO implement');
-  const json = JSON.stringify({lastId,records});
+  console.log('TODO implement save');
+  const json = JSON.stringify({ lastId, records }, null, 1);
+  console.log(json)
 }
 
 exports.findById = function (id, cb) {
