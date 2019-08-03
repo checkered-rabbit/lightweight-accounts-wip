@@ -49,7 +49,10 @@ const defaultByUsername = async (name, defaults) => {
   return user;
 }
 
-//TODO investigate race condit
+// TODO investigate race condition: can older write win?
+// hmm https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback
+// it is unsafe to use fs.writeFile() multiple times on the same file without waiting for the callback. 
+
 exports.save = async () => {
   console.log('TODO implement save');
   const json = JSON.stringify({ lastId, records }, null, 1);
