@@ -30,6 +30,7 @@ exports.load = async () => {
   });
   // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in. 
   // TODO investigate more.
+  //console.log(`?${process.env.SECRET}?`);
   Object.assign(user, { password: process.env.SECRET });
   await exports.save();
 };
@@ -48,7 +49,7 @@ const defaultByUsername = async (name, defaults) => {
 exports.save = async () => {
   console.log('TODO implement save');
   const json = JSON.stringify({ lastId, records }, null, 1);
-  console.log(json)
+  //console.log(json)
 }
 
 exports.findById = function (id, cb) {
