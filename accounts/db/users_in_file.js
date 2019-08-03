@@ -31,9 +31,9 @@ exports.load = async () => {
   const user = await defaultByUsername('admin', {
     displayName: 'Admin',
     emails: [{ value: 'admin@example.com' }],
-    data: {admin:true}
-  });
-  // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in.
+    data: {      admin: true}
+    });
+ // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in.
   // can only manage '', seems trimmed by shell.
   // passport dropps empty password. by experiment.
   //console.log(`?${process.env.SECRET}?`);
@@ -59,7 +59,6 @@ const defaultByUsername = async (name, defaults) => {
 // it is unsafe to use fs.writeFile() multiple times on the same file without waiting for the callback. 
 
 exports.save = async () => {
-  console.log('TODO implement save');
   const json = JSON.stringify({ lastId, records }, null, 1);
   //console.log(json);
   await nod(fs.writeFile, userFile, json, 'utf8');
