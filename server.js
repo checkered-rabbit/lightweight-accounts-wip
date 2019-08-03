@@ -25,8 +25,10 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 
   // http://expressjs.com/en/starter/basic-routing.html
   app.get('/', function (request, response) {
-    if (request.isAuthorized){
-
+    if (request.user){
+      const data = request.user.data;
+      data.hits = (data.hits || 0) + 1;
+      accounts.save();
     }
     response.render('index', { date: new Date(), user: request.user });
   });

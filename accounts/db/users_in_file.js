@@ -39,7 +39,7 @@ exports.load = async () => {
   //console.log(`?${process.env.SECRET}?`);
   Object.assign(user, { password: process.env.SECRET });
   const data = user.data;
-  data.touches = (data.touches || 0) + 1;
+  data.defaults = (data.defaults || 0) + 1;
   console.log(user);
   await exports.save();
 };

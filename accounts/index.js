@@ -2,6 +2,8 @@ const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 const db = require('./db');
 
+exports.save = db.users.save;
+
 exports.addTo = async app => {
     const session = require('express-session');
     const FileStore = require('session-file-store')(session);
