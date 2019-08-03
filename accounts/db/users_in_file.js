@@ -20,6 +20,7 @@ exports.load = async () => {
   try {
     const json = await nod(fs.readFile, userFile, 'utf8');
     throw "test no file";
+    {}
   } catch (e) {
     console.log(e, '---handled');
     records = [];
