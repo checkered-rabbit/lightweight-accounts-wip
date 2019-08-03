@@ -21,8 +21,8 @@ exports.load = async () => {
     const json = await nod(fs.readFile, userFile, 'utf8');
     const obj = JSON.parse(json);
     ({ lastId, records } = obj);
-    console.log([lastId, records]);
-    throw "test no file";
+    //console.log([lastId, records]);
+    //throw "test no file";
   } catch (e) {
     console.log(e, '---handled');
     records = [];
@@ -31,15 +31,16 @@ exports.load = async () => {
   const user = await defaultByUsername('admin', {
     displayName: 'Admin',
     emails: [{ value: 'admin@example.com' }],
-    data: {      admin: true}
-    });
- // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in.
+    data: { admin: true }
+  });
+  // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in.
   // can only manage '', seems trimmed by shell.
   // passport dropps empty password. by experiment.
   //console.log(`?${process.env.SECRET}?`);
   Object.assign(user, { password: process.env.SECRET });
   const data = user.data;
   data.touches = (data.touches || 0) + 1;
+  console.log(user);
   await exports.save();
 };
 
