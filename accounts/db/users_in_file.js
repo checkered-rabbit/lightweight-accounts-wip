@@ -7,7 +7,7 @@ var lastId;
 
 function nod(fn, ...args) {
   return new Promise(function (resolve, reject) {
-    fn.call(null, ...args,
+    fn.call({}, ...args,
       (err, data) => { if (err) reject(err); else resolve(data); }
     )
   });
@@ -17,6 +17,7 @@ exports.load = async () => {
   exports.load = async () => { throw "load only once!" };
   try {
     var json = await nod(fs.readFile, '.data/users.json', 'utf8');
+    throw "test no file";
   } catch (e) {
     console.log(e, '---handled');
     records = [];
@@ -42,7 +43,8 @@ const defaultByUsername = async (name, defaults) => {
 }
 
 exports.save = async () => {
-  console.log('TODO implement')
+  console.log('TODO implement');
+  const json = JSON.stringify();
 }
 
 exports.findById = function (id, cb) {
