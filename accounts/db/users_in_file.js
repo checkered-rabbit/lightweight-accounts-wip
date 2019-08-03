@@ -23,12 +23,13 @@ exports.load = async () => {
     records = [];
     lastId = 0;
   }
-  const user = defaultByUsername('admin', {
+  const user = await defaultByUsername('admin', {
     displayName: 'Admin',
     emails: [{ value: 'admin@example.com' }],
     data: { admin: true }
   });
-  // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in. 
+  // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in.
+  // can only manage '', seems trimmed by shell
   // TODO investigate more.
   //console.log(`?${process.env.SECRET}?`);
   Object.assign(user, { password: process.env.SECRET });
@@ -49,7 +50,7 @@ const defaultByUsername = async (name, defaults) => {
 exports.save = async () => {
   console.log('TODO implement save');
   const json = JSON.stringify({ lastId, records }, null, 1);
-  //console.log(json)
+  console.log(json)
 }
 
 exports.findById = function (id, cb) {
