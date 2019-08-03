@@ -44,7 +44,7 @@ const defaultByUsername = async (name, defaults) => {
 
 exports.save = async () => {
   console.log('TODO implement');
-  const json = JSON.stringify();
+  const json = JSON.stringify({lastId,records});
 }
 
 exports.findById = function (id, cb) {
