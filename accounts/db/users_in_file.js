@@ -2,6 +2,8 @@
 
 const fs = require('fs');
 
+const userFile = '.data/users.json';
+
 var records;
 var lastId;
 
@@ -16,7 +18,7 @@ function nod(fn, ...args) {
 exports.load = async () => {
   exports.load = async () => { throw "load only once!" };
   try {
-    var json = await nod(fs.readFile, '.data/users.json', 'utf8');
+    const json = await nod(fs.readFile, userFile, 'utf8');
     throw "test no file";
   } catch (e) {
     console.log(e, '---handled');
@@ -29,8 +31,8 @@ exports.load = async () => {
     data: { admin: true }
   });
   // invisible 'SECRET=  ' could be pass='  ', but by experiment does not log in.
-  // can only manage '', seems trimmed by shell
-  // TODO investigate more.
+  // can only manage '', seems trimmed by shell.
+  // passport dropps empty password. by experiment.
   //console.log(`?${process.env.SECRET}?`);
   Object.assign(user, { password: process.env.SECRET });
   await exports.save();
@@ -47,10 +49,12 @@ const defaultByUsername = async (name, defaults) => {
   return user;
 }
 
+//TODO investigate race condit
 exports.save = async () => {
   console.log('TODO implement save');
   const json = JSON.stringify({ lastId, records }, null, 1);
-  console.log(json)
+  //console.log(json);
+  await nod(fs.writeFile, userFile, json, 'utf8');
 }
 
 exports.findById = function (id, cb) {
